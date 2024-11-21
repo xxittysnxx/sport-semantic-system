@@ -37,8 +37,8 @@ CREATE TABLE SportSemanticSystem.annotations (
 );
 
 -- 4. Create User and Grant Permissions
-CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON SportSemanticSystem.* TO 'new_user'@'localhost';
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON SportSemanticSystem.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
