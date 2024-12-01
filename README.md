@@ -7,7 +7,7 @@ This is a The University of Texas at Dallas Multimedia System Course Projects.
 The code for this project is split into 3 directories:
 
 - `frontend`: contains the upload and search interface.
-- `backend`: contains the logic for handle the uploaded video to the server and the processed data into database.
+- `backend`: contains the logic for handle the uploaded video to the server, yolo model to annotate videos and the processed data into database.
 - `MySQL`: contains data stores the video annotations.
 - `yolo machine learning`: wait for update.
 
@@ -42,6 +42,10 @@ GRANT ALL PRIVILEGES ON SportSemanticSystem.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
+For the yolo model, finding your data to train model, we use https://www.kaggle.com/datasets/mathurinache/olympic-games-sports-images and store under `model/data` folder.
+
+Then run the `train.ipynb`, you will get the nodel `best.pt` for best weights and `last.pt` for last epoch of training and you can adjust the attributes in `train.ipynb` to get your model fits better.
+
 To setup the server, make sure to install all needed package:
 
 ```
@@ -72,6 +76,6 @@ Then in the `frontend` directory. Note, these should be executed in seperate ter
 npm start
 ```
 
-Once the react web interface is started, a tab should automatically open in your browser displaying the interface. If not, you can visit [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Once the react web interface is started, a tab should automatically open in your browser displaying the interface. If not, you can visit http://localhost:3000 to view it in your browser.
 
 *For some public networks that block internal communication, such as CometNet, you'll need to connect both your mobile device and server/web interface to the same private VPN. 
