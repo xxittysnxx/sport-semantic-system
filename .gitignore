@@ -1,5 +1,5 @@
 backend/videos/
-backend/model/data/
+backend/model/data/*
 backend/model/source/runs/classify/train/*
 !backend/model/source/runs/classify/train/weights
 frontend/node_modules/

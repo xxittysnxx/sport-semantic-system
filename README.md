@@ -9,8 +9,6 @@ The code for this project is split into 3 directories:
 - `frontend`: contains the upload and search interface.
 - `backend`: contains the logic for handle the uploaded video to the server, yolo model to annotate videos and the processed data into database.
 - `MySQL`: contains data stores the video annotations.
-- `yolo machine learning`: wait for update.
-
 
 ## Setup
 
@@ -42,9 +40,9 @@ GRANT ALL PRIVILEGES ON SportSemanticSystem.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-For the yolo model, finding your data to train model, we use https://www.kaggle.com/datasets/mathurinache/olympic-games-sports-images and store under `model/data` folder.
+For the yolo model, finding your data to train model, we use https://www.gettyimages.com to fetch images and store under `model/data` folder.
 
-Then run the `train.ipynb`, you will get the nodel `best.pt` for best weights and `last.pt` for last epoch of training and you can adjust the attributes in `train.ipynb` to get your model fits better.
+Then run the `train.ipynb`, you will get the model `best.pt` for best weights and `last.pt` for last epoch of training and you can adjust the attributes in `train.ipynb` to get your model fits better.
 
 To setup the server, make sure to install all needed package:
 
