@@ -1,6 +1,6 @@
 backend/videos/
 backend/model/data/*
-backend/model/source/runs/classify/train/*
+backend/model/source/runs/classify/*
 !backend/model/source/runs/classify/train/weights
 frontend/node_modules/
 frontend/package-lock.json
