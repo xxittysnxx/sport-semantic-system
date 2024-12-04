@@ -97,6 +97,9 @@ def upload_video():
         if results[i]["sport"] != current_tag:
             end_time = results[i - 1]["time_ms"]
             if end_time - start_time >= 300:
+                # Check if the interruption is too short
+                if i + 1 < len(results) and results[i + 1]["sport"] == current_tag:
+                    continue  # Skip short interruption
                 annotations.append({"tag": current_tag, "start_time": start_time / 1000, "end_time": end_time / 1000})
             current_tag = results[i]["sport"]
             start_time = results[i]["time_ms"]

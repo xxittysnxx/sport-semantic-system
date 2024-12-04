@@ -88,7 +88,7 @@ function App() {
                                 `);
                             }}
                         >
-                            {res.tag} (Start: {res.start_time}s, End: {res.end_time}s)
+                            {res.tag} ({res.video_url.split('/').pop()}, Start: {res.start_time}s, End: {res.end_time}s)
                         </a>
                     </li>
                 ))}
