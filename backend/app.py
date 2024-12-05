@@ -92,17 +92,23 @@ def upload_video():
     current_tag = results[0]["sport"]
     start_time = results[0]["time_ms"]
 
+    # Check if the interruption is too short
+    def is_short_interruption(results, current_index, current_tag, lookahead=3):
+        for offset in range(1, lookahead + 1):
+            if current_index + offset < len(results) and results[current_index + offset]["sport"] == current_tag:
+                return True
+        return False
+
     # Create annotations
     for i in range(1, len(results)):
         if results[i]["sport"] != current_tag:
             end_time = results[i - 1]["time_ms"]
             if end_time - start_time >= 300:
-                # Check if the interruption is too short
-                if i + 1 < len(results) and results[i + 1]["sport"] == current_tag:
+                if is_short_interruption(results, i, current_tag):
                     continue  # Skip short interruption
                 annotations.append({"tag": current_tag, "start_time": start_time / 1000, "end_time": end_time / 1000})
-            current_tag = results[i]["sport"]
-            start_time = results[i]["time_ms"]
+                current_tag = results[i]["sport"]
+                start_time = results[i]["time_ms"]
     if results[-1]["time_ms"] - start_time >= 300:
         annotations.append({"tag": current_tag, "start_time": start_time / 1000, "end_time": results[-1]["time_ms"] / 1000})
 
